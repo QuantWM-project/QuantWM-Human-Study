@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex,nofollow">
+  <meta name="color-scheme" content="light">
+  <meta name="description" content="匿名视频质量与时序一致性主观评价问卷">
+  <title>视频时序一致性主观评价 · Human Study</title>
+  <link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+  <header class="topbar"><div class="shell topbar-content"><a class="brand" href="./"><span class="brand-icon">Q</span><span>Video Perception Study</span></a><span class="topbar-badge"><span class="dot"></span> Anonymous &amp; Blinded</span></div></header>
+  <main class="shell" id="app">
+    <section class="hero">
+      <div class="eyebrow">RESEARCH EVALUATION · 约 5–12 分钟</div>
+      <h1>视频时序一致性<br><em>主观评价实验</em></h1>
+      <p>请比较两段在相同条件下生成的视频，从闪烁、时序一致性、运动连续性和视觉质量四个维度进行评价。视频使用 <b>A / B</b> 盲测编号，播放位置已随机化。</p>
+      <div class="hero-highlights"><span>◎ 1–5 分评分</span><span>⇆ 随机 A/B 顺序</span><span>▤ 匿名收集</span></div>
+    </section>
+    <section id="message" class="notice hidden" role="status"></section>
+    <section id="intro" class="card intro-card">
+      <div class="section-caption">开始前，请阅读</div>
+      <h2>评价说明</h2>
+      <p>每组包含同一场景的两段视频。请先观看视频，然后分别为 A 和 B 打分。所有指标均为 <strong>1 分最差，5 分最好</strong>；无需猜测视频来自哪种算法。</p>
+      <div class="metric-explain">
+        <div><b>时序闪烁</b><span>观察亮度、纹理、颜色或局部外观是否突然闪变</span></div>
+        <div><b>内容一致性</b><span>观察人物、物体和场景结构能否在连续帧中保持稳定</span></div>
+        <div><b>运动连续性</b><span>观察物体或相机运动是否突跳、抖动或不连贯</span></div>
+        <div><b>视觉质量</b><span>观察模糊、伪影、细节丢失与整体清晰度</span></div>
+      </div>
+      <details class="rubric"><summary>查看完整的 1–5 分评分标准</summary><div class="table-scroll"><table class="data-table rubric-table"><thead><tr><th>维度</th><th>1 分</th><th>2 分</th><th>3 分</th><th>4 分</th><th>5 分</th></tr></thead><tbody>
+<tr><td>时序闪烁</td><td>频繁剧烈闪烁</td><td>多次明显闪烁</td><td>偶尔闪烁</td><td>极少轻微闪烁</td><td>几乎无闪烁</td></tr>
+<tr><td>内容一致性</td><td>场景频繁突变</td><td>多处明显不一致</td><td>偶尔局部不一致</td><td>基本一致</td><td>始终稳定</td></tr>
+<tr><td>运动连续性</td><td>严重跳变或错乱</td><td>多次明显突跳</td><td>偶尔不连贯</td><td>整体流畅</td><td>运动自然连续</td></tr>
+<tr><td>视觉质量</td><td>严重模糊和伪影</td><td>明显失真</td><td>部分缺陷</td><td>少量轻微缺陷</td><td>画面清晰自然</td></tr>
+</tbody></table></div></details>
+<label class="consent"><input type="checkbox" id="consent"> <span>我已知悉本实验用于学术研究，参与自愿；网页不要求填写姓名或联系方式，提交后不能修改已提交的评分。</span></label>
+      <button id="start" class="button primary" disabled>我已了解，开始评价 <span>→</span></button>
+      <div class="tiny">系统在本设备保存匿名随机编号，用于识别同一位评估者已评价的样本；可随时关闭页面。</div>
+    </section>
+    <section id="survey" class="hidden">
+      <div class="progress-line"><div><span class="eyebrow">EVALUATION PROGRESS</span><h2 id="pair-title">样本评价</h2><p id="pair-subtitle" class="muted">请仔细观看两段视频</p></div><div class="progress-status"><b id="progress-count">1 / 1</b><div class="progress-track"><span id="progress-fill"></span></div></div></div>
+      <div class="video-grid">
+        <div class="video-panel"><div class="panel-label"><span class="round-letter">A</span><span>Video A</span><span class="video-status" id="state-a">待加载</span></div><video id="video-a" playsinline muted preload="metadata" loop></video></div>
+        <div class="video-panel"><div class="panel-label"><span class="round-letter">B</span><span>Video B</span><span class="video-status" id="state-b">待加载</span></div><video id="video-b" playsinline muted preload="metadata" loop></video></div>
+      </div>
+      <div class="player-actions"><button id="playboth" class="button outline" type="button">▶ 同步播放 / 暂停</button><button id="restart" class="button subtle" type="button">↺ 从头播放</button><span id="watch-hint" class="muted">请观看两段视频后评分</span></div>
+      <form id="rating-form" class="card rating-card">
+        <div class="section-caption">PERCEPTUAL ASSESSMENT</div>
+        <h2>对 A 和 B 分别打分</h2><p class="muted">1 = 严重问题　·　3 = 偶有问题　·　5 = 几乎无可见问题</p>
+        <div id="metrics"></div>
+        <div class="preference"><div class="section-caption">OVERALL PREFERENCE</div><h3>总体而言，你更偏好哪段视频？</h3><p class="muted">综合考虑视频的时序稳定性与视觉质量。</p><div id="pref-options" class="rating-scale preference-scale"></div></div>
+        <label class="consent small"><input type="checkbox" id="checked-watch"> <span>我已经完整观察过两段视频，并根据实际观感独立评分。</span></label>
+        <div id="form-error" class="form-error hidden" role="alert"></div>
+        <div class="form-footer"><span class="muted">评分提交后不可返回修改</span><button id="submit" class="button primary" type="submit">提交本组评分 <span>→</span></button></div>
+      </form>
+    </section>
+    <section id="finish" class="card finish-card hidden"><div class="finish-mark">✓</div><div class="eyebrow">STUDY COMPLETED</div><h2>感谢你的参与！</h2><p>你的评分已提交。结果仅供经过授权的研究管理员查看，用于论文中的人工评价统计。</p><div id="finish-stats" class="tiny"></div></section>
+  </main>
+  <footer class="footer shell"><span>QuantWM Human Study · Independent Evaluation</span><span>独立研究问卷 · 结果仅授权管理员可读</span></footer>
+  <script type="module" src="assets/survey.js"></script>
+</body>
+</html>
