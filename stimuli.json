@@ -1,4 +1,68 @@
 {
-  "description": "Use pair-builder.html to import videos from the existing QuantWM project page and export verified QVG/QuantWM pairs.",
-  "pairs": []
+  "description": "QuantWM human preference study: user-uploaded paired videos",
+  "pairs": [
+    {
+      "id": "pair_001_hy-1",
+      "model": "HY-World 1.5",
+      "scene": "hy-1",
+      "videos": {
+        "qvg": "videos/qvg-hy-2.mp4",
+        "quantwm": "videos/ours-hy-2.mp4"
+      }
+    },
+    {
+      "id": "pair_002_hy-2",
+      "model": "HY-World 1.5",
+      "scene": "hy-2",
+      "videos": {
+        "qvg": "videos/qvg-2.mp4",
+        "quantwm": "videos/ours-2.mp4"
+      }
+    },
+    {
+      "id": "pair_003_hy-3",
+      "model": "HY-World 1.5",
+      "scene": "hy-3",
+      "videos": {
+        "qvg": "videos/hy-world-5-qvg.mp4",
+        "quantwm": "videos/hy-world-5-quantwm.mp4"
+      }
+    },
+    {
+      "id": "pair_004_lb-1",
+      "model": "LingBot-World-v2",
+      "scene": "lb-1",
+      "videos": {
+        "qvg": "videos/lingbot-5-qvg.mp4",
+        "quantwm": "videos/lingbot-5-quantwm.mp4"
+      }
+    },
+    {
+      "id": "pair_005_mg-1",
+      "model": "Matrix-Game-2",
+      "scene": "mg-1",
+      "videos": {
+        "qvg": "videos/qvg.mp4",
+        "quantwm": "videos/ours.mp4"
+      }
+    },
+    {
+      "id": "pair_006_mg-2",
+      "model": "Matrix-Game-2",
+      "scene": "mg-2",
+      "videos": {
+        "qvg": "videos/qvg_副本.mp4",
+        "quantwm": "videos/ours_副本.mp4"
+      }
+    },
+    {
+      "id": "pair_007_forcing",
+      "model": "Causal-Forcing",
+      "scene": "forcing",
+      "videos": {
+        "qvg": "videos/qvg-1-1.mp4",
+        "quantwm": "videos/ours-1-1.mp4"
+      }
+    }
+  ]
 }
